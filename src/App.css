@@ -1335,6 +1335,19 @@ footer {
     max-width: 560px;
     margin: 0 auto;
   }
+
+  .testimonial-card {
+    align-items: center;
+    text-align: center;
+  }
+
+  .testimonial-author {
+    justify-content: center;
+  }
+
+  .stars {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1395,6 +1408,11 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .why-card {
+    align-items: center;
+    text-align: center;
+  }
+
   .insurance-card {
     padding: 44px 32px;
   }
@@ -1417,6 +1435,11 @@ footer {
 
   .benefits-grid {
     grid-template-columns: 1fr;
+  }
+
+  .benefit-card {
+    align-items: center;
+    text-align: center;
   }
 
   .hero-stats {
