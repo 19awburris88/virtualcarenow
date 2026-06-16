@@ -1197,20 +1197,23 @@ h1 {
   margin: 0 auto;
   background: var(--black);
   border-radius: var(--radius-xl);
-  padding: 80px 60px;
-  text-align: center;
+  padding: 64px 60px;
   position: relative;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: start;
 }
 
 .contact-inner::before {
   content: '';
   position: absolute;
-  top: -30%;
+  top: -20%;
   right: -5%;
-  width: 550px;
-  height: 550px;
-  background: radial-gradient(circle, rgba(194, 155, 134, 0.07) 0%, transparent 65%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(194, 155, 134, 0.08) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -1218,38 +1221,219 @@ h1 {
   color: var(--copper);
 }
 
-.contact-inner h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+.contact-form-col h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
   font-weight: 800;
   color: #fff;
   line-height: 1.1;
   letter-spacing: -0.025em;
-  margin: 8px 0 18px;
+  margin: 8px 0 14px;
 }
 
-.contact-inner p {
-  font-size: 1.08rem;
-  color: rgba(255, 255, 255, 0.65);
-  max-width: 540px;
-  margin: 0 auto 40px;
-  line-height: 1.75;
+.contact-subtext {
+  font-size: 0.975rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+  margin-bottom: 32px;
 }
 
-.contact-actions {
+/* Booking form */
+.booking-form {
   display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.contact-hours {
-  display: inline-flex;
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.req {
+  color: var(--copper);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-size: 0.925rem;
+  color: #fff;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.form-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.form-field select option {
+  background: var(--charcoal);
+  color: #fff;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--copper);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-field input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Booking success state */
+.booking-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+}
+
+.booking-success-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(194, 155, 134, 0.2);
+  border-radius: 50%;
+  display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  color: var(--copper);
+}
+
+.booking-success h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.booking-success p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+/* Contact info sidebar */
+.contact-info-col {
+  position: sticky;
+  top: 130px;
+}
+
+.contact-info-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-badge {
+  background: rgba(194, 155, 134, 0.15);
+  border-color: rgba(194, 155, 134, 0.25);
+  color: var(--copper);
+  width: fit-content;
+}
+
+.contact-info-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.contact-info-card > p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.65;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.contact-detail:hover {
+  opacity: 0.8;
+}
+
+.contact-detail-icon {
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--copper);
+  flex-shrink: 0;
+}
+
+.contact-detail-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: rgba(255, 255, 255, 0.4);
-  font-size: 0.84rem;
+  margin-bottom: 3px;
+}
+
+.contact-detail-value {
+  font-size: 0.9rem;
   font-weight: 500;
-  margin-top: 28px;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ============================================================
@@ -1425,7 +1609,13 @@ footer {
   }
 
   .contact-inner {
-    padding: 56px 32px;
+    grid-template-columns: 1fr;
+    padding: 48px 32px;
+    gap: 40px;
+  }
+
+  .contact-info-col {
+    position: static;
   }
 
   .footer-inner {
@@ -1475,7 +1665,57 @@ footer {
     padding: 44px 20px;
   }
 
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
   .section-header {
     margin-bottom: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo {
+    height: 90px;
+    margin-top: -10px;
+  }
+
+  .nav-brand {
+    height: 75px;
+  }
+
+  .nav-inner {
+    height: 75px;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 9vw, 2.8rem);
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.6rem, 7vw, 2rem);
+  }
+
+  .section-hero,
+  .section-services,
+  .section-benefits,
+  .section-why,
+  .section-how,
+  .section-testimonials {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .contact-inner {
+    padding: 36px 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .contact-info-card {
+    padding: 24px 20px;
+  }
+
+  .booking-success {
+    padding: 28px 20px;
   }
 }
