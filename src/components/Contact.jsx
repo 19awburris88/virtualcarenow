@@ -1,20 +1,8 @@
 import { useState } from 'react';
 
-const REASONS = [
-  'Cough, cold & flu symptoms',
-  'Sore throat / sinus infection',
-  'UTI treatment',
-  'Allergies',
-  'Pink eye (conjunctivitis)',
-  'Rash or skin concern',
-  'Medication refill',
-  'Vitamin deficiency support',
-  'Erectile dysfunction',
-  'Health coaching',
-  'Other',
-];
+const INTAKEQ_URL = 'https://virtualcarenow.intakeq.com/booking?serviceId=226b8e05-ae9c-4858-a9b7-af7c3ba62ceb';
 
-const EMPTY = { name: '', email: '', phone: '', date: '', reason: '', notes: '' };
+const EMPTY = { name: '', email: '', phone: '', message: '' };
 
 export default function Contact() {
   const [form, setForm] = useState(EMPTY);
@@ -33,20 +21,41 @@ export default function Contact() {
         <div className="contact-inner">
 
           <div className="contact-form-col">
+
+            {/* ── Book an appointment ── */}
             <p className="eyebrow contact-eyebrow">Book an Appointment</p>
-            <h2>Request a visit</h2>
+            <h2>Ready to see Dr. Grundy?</h2>
             <p className="contact-subtext">
-              Fill out the form and we'll confirm your appointment within 1 hour
-              by email or phone.
+              Book your virtual visit online in minutes through our secure scheduling portal.
+            </p>
+            <a
+              href={INTAKEQ_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-white btn-lg contact-book-btn"
+            >
+              <CalendarIcon />
+              Book Online Now
+            </a>
+
+            {/* ── Divider ── */}
+            <div className="contact-section-divider">
+              <span>or</span>
+            </div>
+
+            {/* ── General inquiry form ── */}
+            <p className="contact-question-label">Have a question first?</p>
+            <p className="contact-subtext contact-subtext-sm">
+              Send a message and we'll get back to you within 1 business day.
             </p>
 
             {submitted ? (
               <div className="booking-success">
                 <div className="booking-success-icon"><CheckIcon /></div>
-                <h3>Request received!</h3>
-                <p>We'll be in touch shortly to confirm your appointment. You can also call or email us directly.</p>
+                <h3>Message received!</h3>
+                <p>We'll be in touch soon. To book an appointment, use the button above.</p>
                 <button className="btn btn-white btn-lg" onClick={() => { setForm(EMPTY); setSubmitted(false); }}>
-                  Submit Another Request
+                  Send Another Message
                 </button>
               </div>
             ) : (
@@ -61,29 +70,16 @@ export default function Contact() {
                     <input id="email" name="email" type="email" required value={form.email} onChange={handle} placeholder="jane@email.com" />
                   </div>
                 </div>
-                <div className="form-row">
-                  <div className="form-field">
-                    <label htmlFor="phone">Phone Number</label>
-                    <input id="phone" name="phone" type="tel" value={form.phone} onChange={handle} placeholder="(555) 000-0000" />
-                  </div>
-                  <div className="form-field">
-                    <label htmlFor="date">Preferred Date</label>
-                    <input id="date" name="date" type="date" value={form.date} onChange={handle} />
-                  </div>
+                <div className="form-field">
+                  <label htmlFor="phone">Phone Number <span className="form-optional">(optional)</span></label>
+                  <input id="phone" name="phone" type="tel" value={form.phone} onChange={handle} placeholder="(555) 000-0000" />
                 </div>
                 <div className="form-field">
-                  <label htmlFor="reason">Reason for Visit</label>
-                  <select id="reason" name="reason" value={form.reason} onChange={handle}>
-                    <option value="">Select a reason…</option>
-                    {REASONS.map(r => <option key={r} value={r}>{r}</option>)}
-                  </select>
-                </div>
-                <div className="form-field">
-                  <label htmlFor="notes">Additional Notes</label>
-                  <textarea id="notes" name="notes" rows={3} value={form.notes} onChange={handle} placeholder="Describe your symptoms or any other relevant details…" />
+                  <label htmlFor="message">Your Question <span className="req">*</span></label>
+                  <textarea id="message" name="message" rows={4} required value={form.message} onChange={handle} placeholder="What would you like to know?" />
                 </div>
                 <button type="submit" className="btn btn-white btn-lg btn-full">
-                  Schedule Appointment
+                  Send Message
                 </button>
               </form>
             )}
@@ -126,6 +122,17 @@ export default function Contact() {
         </div>
       </div>
     </section>
+  );
+}
+
+function CalendarIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+      <line x1="16" y1="2" x2="16" y2="6" />
+      <line x1="8" y1="2" x2="8" y2="6" />
+      <line x1="3" y1="10" x2="21" y2="10" />
+    </svg>
   );
 }
 
