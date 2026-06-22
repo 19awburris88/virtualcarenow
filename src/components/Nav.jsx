@@ -3,11 +3,11 @@ import logo from '../assets/vnc-logo-nav.webp';
 import { PHONE, PHONE_HREF } from '../data/constants';
 
 const links = [
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#how-it-works', label: 'How It Works' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#about', label: 'About' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#how-it-works', label: 'How It Works' },
+  { href: '/#faq', label: 'FAQ' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export default function Nav() {
@@ -36,7 +36,7 @@ export default function Nav() {
               <PhoneIcon />
               {PHONE}
             </a>
-            <a href="#contact" className="btn btn-primary">Book Now</a>
+            <a href="/#contact" className="btn btn-primary">Book Now</a>
           </div>
 
           <button
@@ -62,7 +62,7 @@ export default function Nav() {
             <PhoneIcon />
             Call {PHONE}
           </a>
-          <a href="#contact" className="btn btn-primary btn-full" onClick={close}>
+          <a href="/#contact" className="btn btn-primary btn-full" onClick={close}>
             Book Now
           </a>
         </div>

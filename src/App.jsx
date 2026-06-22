@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
@@ -14,8 +15,9 @@ import FAQ from './components/FAQ';
 import Newsletter from './components/Newsletter';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import BlogPost from './pages/BlogPost';
 
-function App() {
+function Home() {
   return (
     <>
       <Nav />
@@ -36,6 +38,15 @@ function App() {
       </main>
       <Footer />
     </>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/blog/:slug" element={<BlogPost />} />
+    </Routes>
   );
 }
 

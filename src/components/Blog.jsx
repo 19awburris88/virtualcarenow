@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { POSTS } from '../data/posts';
 
 export default function Blog() {
@@ -22,9 +23,9 @@ export default function Blog() {
                 <p className="blog-card-excerpt">{post.excerpt}</p>
                 <div className="blog-card-meta">
                   <span>{post.date}</span>
-                  <a href="#blog" className="blog-card-link">
+                  <Link to={`/blog/${post.slug}`} className="blog-card-link">
                     Read more <ArrowIcon />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>
