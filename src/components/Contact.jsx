@@ -16,6 +16,7 @@ export default function Contact() {
   const [selectedCondition, setSelectedCondition] = useState('');
   const [form, setForm] = useState(EMPTY);
   const [submitted, setSubmitted] = useState(false);
+  const [submittedEmail, setSubmittedEmail] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -29,9 +30,15 @@ export default function Contact() {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ ...form, ...(CC_EMAIL && { _cc: CC_EMAIL }) }),
+        body: JSON.stringify({
+          ...form,
+          _replyto: form.email,
+          _subject: `Virtual Care Now inquiry from ${form.name}`,
+          ...(CC_EMAIL && { _cc: CC_EMAIL }),
+        }),
       });
       if (res.ok) {
+        setSubmittedEmail(form.email);
         setSubmitted(true);
       } else {
         setError('Something went wrong. Please try again or email us directly.');
@@ -101,8 +108,8 @@ export default function Contact() {
               <div className="booking-success">
                 <div className="booking-success-icon"><CheckIcon /></div>
                 <h3>Message received!</h3>
-                <p>We'll be in touch soon. To book an appointment, use the button above.</p>
-                <button className="btn btn-white btn-lg" onClick={() => { setForm(EMPTY); setSubmitted(false); }}>
+                <p>We'll get back to you at <strong>{submittedEmail}</strong> within 1 business day.</p>
+                <button className="btn btn-white btn-lg" onClick={() => { setForm(EMPTY); setSubmitted(false); setSubmittedEmail(''); }}>
                   Send Another Message
                 </button>
               </div>

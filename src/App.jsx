@@ -9,6 +9,7 @@ import Benefits from './components/Benefits';
 import WhyUs from './components/WhyUs';
 import Insurance from './components/Insurance';
 import Testimonials from './components/Testimonials';
+import Blog from './components/Blog';
 import FAQ from './components/FAQ';
 import Newsletter from './components/Newsletter';
 import Contact from './components/Contact';
@@ -28,6 +29,7 @@ function App() {
         <WhyUs />
         <Insurance />
         <Testimonials />
+        <Blog />
         <FAQ />
         <Newsletter />
         <Contact />

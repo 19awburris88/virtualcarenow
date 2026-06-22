@@ -4,6 +4,11 @@ import { INTAKEQ_URL } from '../data/constants';
 
 export default function Services() {
   const [active, setActive] = useState(null);
+  const [query, setQuery] = useState('');
+
+  const filtered = CONDITIONS.filter(c =>
+    c.name.toLowerCase().includes(query.toLowerCase())
+  );
 
   useEffect(() => {
     if (!active) return;
@@ -30,22 +35,45 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="services-grid">
-            {CONDITIONS.map(c => (
-              <button
-                className="service-card"
-                key={c.name}
-                onClick={() => setActive(c)}
-                aria-label={`Learn more about ${c.name}`}
-              >
-                <div className="service-check">
-                  <CheckIcon />
-                </div>
-                <p>{c.name}</p>
-                <ChevronIcon />
-              </button>
-            ))}
+          <div className="services-search">
+            <div className="services-search-icon">
+              <SearchIcon />
+            </div>
+            <input
+              type="text"
+              className="services-search-input"
+              placeholder="Search conditions…"
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              aria-label="Search conditions"
+            />
           </div>
+
+          {filtered.length > 0 ? (
+            <div className="services-grid">
+              {filtered.map(c => (
+                <button
+                  className="service-card"
+                  key={c.name}
+                  onClick={() => setActive(c)}
+                  aria-label={`Learn more about ${c.name}`}
+                >
+                  <div className="service-check">
+                    <CheckIcon />
+                  </div>
+                  <p>{c.name}</p>
+                  <ChevronIcon />
+                </button>
+              ))}
+            </div>
+          ) : (
+            <p className="services-empty">
+              No conditions match &ldquo;{query}&rdquo;.{' '}
+              <button className="services-empty-clear" onClick={() => setQuery('')}>
+                Clear search
+              </button>
+            </p>
+          )}
 
           <div className="services-cta">
             <p>Don't see your condition listed? Contact us — we treat many more conditions virtually.</p>
@@ -90,6 +118,15 @@ export default function Services() {
         </div>
       )}
     </>
+  );
+}
+
+function SearchIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </svg>
   );
 }
 
