@@ -1,3 +1,5 @@
+import { PHONE, PHONE_HREF, EMAIL } from '../data/constants';
+
 export default function Hero() {
   return (
     <section className="section-hero">
@@ -45,13 +47,13 @@ export default function Hero() {
             </div>
             <div className="avail-divider" />
             <div className="avail-contact">
-              <a href="tel:18002805402" className="avail-link">
+              <a href={PHONE_HREF} className="avail-link">
                 <PhoneIcon />
-                1-800-280-5402
+                {PHONE}
               </a>
-              <a href="mailto:info@virtualcare-now.com" className="avail-link">
+              <a href={`mailto:${EMAIL}`} className="avail-link">
                 <MailIcon />
-                info@virtualcare-now.com
+                {EMAIL}
               </a>
             </div>
             <a href="#contact" className="btn btn-primary btn-full">Book a Visit Now</a>

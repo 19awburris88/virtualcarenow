@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CONDITIONS } from '../data/conditions';
+import { PHONE, PHONE_HREF, EMAIL, INTAKEQ_URL, CC_EMAIL } from '../data/constants';
 
-const INTAKEQ_URL = 'https://virtualcarenow.intakeq.com/booking';
 const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID;
 const EMPTY = { name: '', email: '', phone: '', reason: '', message: '' };
 
@@ -29,7 +29,7 @@ export default function Contact() {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ ...form, _cc: 'Jsgrundy11@gmail.com' }),
+        body: JSON.stringify({ ...form, ...(CC_EMAIL && { _cc: CC_EMAIL }) }),
       });
       if (res.ok) {
         setSubmitted(true);
@@ -42,8 +42,6 @@ export default function Contact() {
       setLoading(false);
     }
   };
-
-  const bookingUrl = INTAKEQ_URL;
 
   return (
     <section id="contact" className="section-contact">
@@ -79,7 +77,7 @@ export default function Contact() {
             </div>
 
             <a
-              href={bookingUrl}
+              href={INTAKEQ_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-white btn-lg contact-book-btn"
@@ -154,18 +152,18 @@ export default function Contact() {
               <h3>Get in touch directly</h3>
               <p>Prefer to call or email? We're available 7 days a week.</p>
               <div className="contact-details">
-                <a href="tel:18002805402" className="contact-detail">
+                <a href={PHONE_HREF} className="contact-detail">
                   <div className="contact-detail-icon"><PhoneIcon /></div>
                   <div>
                     <div className="contact-detail-label">Phone</div>
-                    <div className="contact-detail-value">1-800-280-5402</div>
+                    <div className="contact-detail-value">{PHONE}</div>
                   </div>
                 </a>
-                <a href="mailto:info@virtualcare-now.com" className="contact-detail">
+                <a href={`mailto:${EMAIL}`} className="contact-detail">
                   <div className="contact-detail-icon"><MailIcon /></div>
                   <div>
                     <div className="contact-detail-label">Email</div>
-                    <div className="contact-detail-value">info@virtualcare-now.com</div>
+                    <div className="contact-detail-value">{EMAIL}</div>
                   </div>
                 </a>
                 <div className="contact-detail">

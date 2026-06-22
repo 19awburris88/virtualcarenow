@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import logo from '../assets/vnc-logo-nav.webp';
+import { PHONE, PHONE_HREF } from '../data/constants';
 
 const links = [
   { href: '#about', label: 'About' },
@@ -31,9 +32,9 @@ export default function Nav() {
           </ul>
 
           <div className="nav-actions">
-            <a href="tel:18002805402" className="nav-phone">
+            <a href={PHONE_HREF} className="nav-phone">
               <PhoneIcon />
-              1-800-280-5402
+              {PHONE}
             </a>
             <a href="#contact" className="btn btn-primary">Book Now</a>
           </div>
@@ -57,9 +58,9 @@ export default function Nav() {
           </a>
         ))}
         <div className="mobile-nav-footer">
-          <a href="tel:18002805402" className="btn btn-outline btn-full">
+          <a href={PHONE_HREF} className="btn btn-outline btn-full">
             <PhoneIcon />
-            Call 1-800-280-5402
+            Call {PHONE}
           </a>
           <a href="#contact" className="btn btn-primary btn-full" onClick={close}>
             Book Now

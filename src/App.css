@@ -1418,10 +1418,10 @@ h1 {
 .faq-answer {
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.4s ease;
 }
 .faq-answer.open {
-  max-height: 400px;
+  max-height: 2000px;
 }
 .faq-answer p {
   padding: 4px 28px 26px;

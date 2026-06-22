@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { CONDITIONS } from '../data/conditions';
-
-const INTAKEQ_URL = 'https://virtualcarenow.intakeq.com/booking';
+import { INTAKEQ_URL } from '../data/constants';
 
 export default function Services() {
   const [active, setActive] = useState(null);

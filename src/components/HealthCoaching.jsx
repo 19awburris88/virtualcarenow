@@ -1,4 +1,4 @@
-const INTAKEQ_URL = 'https://virtualcarenow.intakeq.com/booking';
+import { INTAKEQ_URL } from '../data/constants';
 
 const topics = [
   'Weight loss',
