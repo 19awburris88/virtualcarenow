@@ -636,6 +636,239 @@ h1 {
 }
 
 /* ============================================================
+   HEALTH COACHING
+   ============================================================ */
+.section-coaching {
+  padding: 100px 5%;
+  background: var(--copper-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-coaching::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(194, 155, 134, 0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.coaching-grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.coaching-copy h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--black);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin: 8px 0 24px;
+}
+
+.coaching-copy p {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 18px;
+}
+
+.coaching-cta {
+  margin-top: 12px;
+}
+
+.coaching-topics-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  box-shadow: var(--shadow);
+}
+
+.coaching-topics-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--copper);
+  margin-bottom: 20px;
+}
+
+.coaching-topics-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.coaching-topic-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--black);
+  background: var(--ivory);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+}
+
+.coaching-topic-item svg {
+  color: var(--copper);
+  flex-shrink: 0;
+}
+
+.coaching-dr-tag {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light);
+}
+
+.coaching-dr-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--copper-light) 0%, var(--stone-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  flex-shrink: 0;
+}
+
+.coaching-dr-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.coaching-dr-title {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ============================================================
+   CONDITION MODAL
+   ============================================================ */
+.condition-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.55);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: modal-fade-in 0.18s ease;
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.condition-modal {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  max-width: 560px;
+  width: 100%;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  animation: modal-slide-up 0.2s ease;
+  max-height: 88vh;
+  overflow-y: auto;
+}
+
+@keyframes modal-slide-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.condition-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  transition: background 0.15s, color 0.15s;
+}
+.condition-modal-close:hover {
+  background: var(--stone-light);
+  color: var(--black);
+}
+
+.condition-modal-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--copper);
+  background: var(--copper-light);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.condition-modal h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.condition-modal > p {
+  font-size: 0.96rem;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 24px;
+}
+
+.condition-modal-price {
+  background: var(--ivory);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  margin-bottom: 24px;
+  line-height: 1.65;
+}
+
+.condition-modal-price strong {
+  color: var(--black);
+  font-weight: 700;
+}
+
+/* ============================================================
    SERVICES
    ============================================================ */
 .section-services {
@@ -658,11 +891,26 @@ h1 {
   align-items: flex-start;
   gap: 13px;
   transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
 }
 .service-card:hover {
   border-color: var(--copper);
   box-shadow: var(--shadow);
   transform: translateY(-2px);
+}
+
+.service-card-chevron {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  margin-top: 2px;
+  transition: color 0.15s;
+}
+.service-card:hover .service-card-chevron {
+  color: var(--copper);
 }
 
 .service-check {
@@ -707,12 +955,24 @@ h1 {
 
 .additional-service-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
-  gap: 6px;
+  text-align: left;
+  gap: 24px;
   padding: 24px 0;
   border-bottom: 1px solid var(--border-light);
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+  background: transparent;
+  transition: background 0.15s;
+  border-radius: var(--radius-sm);
+}
+.additional-service-item:hover {
+  background: rgba(255,255,255,0.5);
+}
+.additional-service-item:hover .additional-service-link {
+  color: var(--copper-dark);
 }
 
 .additional-service-content h4 {
@@ -1237,6 +1497,48 @@ h1 {
   margin-bottom: 32px;
 }
 
+/* Condition picker above booking button */
+.contact-condition-select {
+  margin-bottom: 16px;
+}
+
+.contact-condition-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.contact-condition-dropdown {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius);
+  padding: 12px 36px 12px 14px;
+  font-size: 0.925rem;
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+.contact-condition-dropdown option {
+  background: var(--charcoal);
+  color: #fff;
+}
+.contact-condition-dropdown:focus {
+  outline: none;
+  border-color: var(--copper);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 /* Booking CTA button */
 .contact-book-btn {
   display: inline-flex;
@@ -1490,6 +1792,131 @@ h1 {
 }
 
 /* ============================================================
+   NEWSLETTER
+   ============================================================ */
+.section-newsletter {
+  padding: 88px 5%;
+  background: var(--charcoal);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-newsletter::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(194, 155, 134, 0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.newsletter-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.newsletter-eyebrow {
+  color: var(--copper);
+}
+
+.newsletter-copy h2 {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 8px 0 16px;
+}
+
+.newsletter-copy p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 14px 20px;
+  font-size: 0.95rem;
+  color: #fff;
+  font-family: inherit;
+  transition: border-color 0.15s, background 0.15s;
+  min-width: 0;
+}
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--copper);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.newsletter-btn {
+  flex-shrink: 0;
+  background: var(--copper);
+  color: #fff;
+  border: 2px solid transparent;
+}
+.newsletter-btn:hover {
+  background: var(--copper-dark);
+}
+
+.newsletter-disclaimer {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 12px;
+}
+
+.newsletter-error {
+  font-size: 0.85rem;
+  color: #f87171;
+  margin-top: 8px;
+}
+
+.newsletter-success {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+}
+
+.newsletter-success-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(194, 155, 134, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--copper);
+  flex-shrink: 0;
+}
+
+.newsletter-success-text {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 footer {
@@ -1584,6 +2011,26 @@ footer {
 
   .stars {
     justify-content: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .coaching-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .newsletter-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .newsletter-input-row {
+    flex-direction: column;
+  }
+
+  .newsletter-btn {
+    width: 100%;
   }
 }
 
@@ -1750,6 +2197,7 @@ footer {
   }
 
   .section-hero,
+  .section-coaching,
   .section-services,
   .section-benefits,
   .section-why,
@@ -1757,6 +2205,10 @@ footer {
   .section-testimonials {
     padding-top: 56px;
     padding-bottom: 56px;
+  }
+
+  .condition-modal {
+    padding: 36px 24px;
   }
 
   .contact-inner {

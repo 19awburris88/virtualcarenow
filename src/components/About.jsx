@@ -1,4 +1,4 @@
-import headshot from '../assets/jeni-headshot.webp';
+import headshot from '../assets/jeni.avif';
 
 const highlights = [
   'Doctor of Nursing Practice (DNP)',

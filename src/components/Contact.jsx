@@ -1,19 +1,49 @@
 import { useState } from 'react';
+import { CONDITIONS } from '../data/conditions';
 
-const INTAKEQ_URL = 'https://virtualcarenow.intakeq.com/booking?serviceId=226b8e05-ae9c-4858-a9b7-af7c3ba62ceb';
+const INTAKEQ_URL = 'https://virtualcarenow.intakeq.com/booking';
+const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID;
+const EMPTY = { name: '', email: '', phone: '', reason: '', message: '' };
 
-const EMPTY = { name: '', email: '', phone: '', message: '' };
+const REASONS = [
+  'Schedule an Appointment',
+  'Insurance Questions',
+  'Cancel / Reschedule',
+  'Other',
+];
 
 export default function Contact() {
+  const [selectedCondition, setSelectedCondition] = useState('');
   const [form, setForm] = useState(EMPTY);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handle = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
 
-  const submit = e => {
+  const submit = async e => {
     e.preventDefault();
-    setSubmitted(true);
+    setError('');
+    setLoading(true);
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...form, _cc: 'Jsgrundy11@gmail.com' }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError('Something went wrong. Please try again or email us directly.');
+      }
+    } catch {
+      setError('Something went wrong. Please try again or email us directly.');
+    } finally {
+      setLoading(false);
+    }
   };
+
+  const bookingUrl = INTAKEQ_URL;
 
   return (
     <section id="contact" className="section-contact">
@@ -28,8 +58,28 @@ export default function Contact() {
             <p className="contact-subtext">
               Book your virtual visit online in minutes through our secure scheduling portal.
             </p>
+
+            <div className="contact-condition-select">
+              <label htmlFor="booking-condition" className="contact-condition-label">
+                What would you like to be seen for? <span className="form-optional">(optional)</span>
+              </label>
+              <select
+                id="booking-condition"
+                value={selectedCondition}
+                onChange={e => setSelectedCondition(e.target.value)}
+                className="contact-condition-dropdown"
+              >
+                <option value="">Choose a condition or service…</option>
+                {CONDITIONS.map(c => (
+                  <option key={c.name} value={c.name}>{c.name}</option>
+                ))}
+                <option value="Health Coaching">Health Coaching</option>
+                <option value="Other / Not Listed">Other / Not Listed</option>
+              </select>
+            </div>
+
             <a
-              href={INTAKEQ_URL}
+              href={bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-white btn-lg contact-book-btn"
@@ -75,11 +125,21 @@ export default function Contact() {
                   <input id="phone" name="phone" type="tel" value={form.phone} onChange={handle} placeholder="(555) 000-0000" />
                 </div>
                 <div className="form-field">
+                  <label htmlFor="reason">Reason for Contact <span className="req">*</span></label>
+                  <select id="reason" name="reason" required value={form.reason} onChange={handle}>
+                    <option value="">Choose an option…</option>
+                    {REASONS.map(r => (
+                      <option key={r} value={r}>{r}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="form-field">
                   <label htmlFor="message">Your Question <span className="req">*</span></label>
                   <textarea id="message" name="message" rows={4} required value={form.message} onChange={handle} placeholder="What would you like to know?" />
                 </div>
-                <button type="submit" className="btn btn-white btn-lg btn-full">
-                  Send Message
+                {error && <p style={{ color: '#f87171', marginBottom: '0.5rem', fontSize: '0.9rem' }}>{error}</p>}
+                <button type="submit" className="btn btn-white btn-lg btn-full" disabled={loading}>
+                  {loading ? 'Sending…' : 'Send Message'}
                 </button>
               </form>
             )}
