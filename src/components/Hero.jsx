@@ -27,7 +27,7 @@ export default function Hero() {
             </div>
             <div className="stat-divider" />
             <div className="stat">
-              <strong>19 Hours</strong>
+              <strong>18 Hours</strong>
               <span>Daily Coverage</span>
             </div>
           </div>
@@ -41,8 +41,10 @@ export default function Hero() {
             </div>
             <h3>Available Daily</h3>
             <div className="avail-schedule">
-              <div className="avail-days">Monday – Sunday</div>
-              <div className="avail-time">5:00 AM – 12:00 AM</div>
+              <div className="avail-days">Sunday – Friday</div>
+              <div className="avail-time">6:00 AM – 12:00 AM</div>
+              <div className="avail-days avail-days-secondary">Saturday</div>
+              <div className="avail-time">8:00 AM – 12:00 AM</div>
               <div className="avail-tz">Eastern Time</div>
             </div>
             <div className="avail-divider" />

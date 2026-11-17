@@ -59,7 +59,7 @@ export default function BlogPost() {
             <div className="blog-post-cta">
               <h3>Ready to be seen from home?</h3>
               <p>
-                Dr. Grundy is available 7 days a week, 5 AM to midnight EST.
+                Dr. Grundy is available 7 days a week, 6 AM to midnight EST (8 AM on Saturdays).
                 Book a virtual visit in minutes.
               </p>
               <a

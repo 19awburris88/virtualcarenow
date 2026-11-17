@@ -15,7 +15,7 @@ const benefits = [
     icon: <CalendarIcon />,
     title: 'Flexible Scheduling',
     description:
-      'Available 7 days a week from 5am to midnight. Book early morning, evening, or weekend appointments.',
+      'Available 7 days a week, from 6am to midnight ET (8am on Saturdays). Book early morning, evening, or weekend appointments.',
   },
   {
     icon: <DollarIcon />,

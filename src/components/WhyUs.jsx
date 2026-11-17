@@ -9,7 +9,7 @@ const reasons = [
     icon: <ClockIcon />,
     title: 'Extended Hours',
     description:
-      'Open 7 days a week, 5am to midnight EST. Care is available when you need it most — early mornings, evenings, and weekends.',
+      'Open 7 days a week, 6am to midnight EST (8am on Saturdays). Care is available when you need it most — early mornings, evenings, and weekends.',
   },
   {
     icon: <UserIcon />,

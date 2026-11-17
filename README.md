@@ -4,7 +4,7 @@ Marketing website for **Virtual Care Now** — a virtual urgent care practice le
 
 ## About
 
-Virtual Care Now offers fast, affordable virtual urgent care from an experienced nurse practitioner. Available Monday–Sunday, 5:00 AM–12:00 AM Eastern Time.
+Virtual Care Now offers fast, affordable virtual urgent care from an experienced nurse practitioner. Available Sunday–Friday 6:00 AM–12:00 AM and Saturday 8:00 AM–12:00 AM Eastern Time.
 
 **Contact**
 - Phone: 1-800-280-5402

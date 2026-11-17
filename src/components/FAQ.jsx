@@ -24,7 +24,7 @@ const faqs = [
   {
     question: 'How quickly can I be seen?',
     answer:
-      'Same-day appointments are often available. Virtual Care Now is open Monday through Sunday from 5:00 AM to 12:00 AM Eastern Time, making it easy to access care at a time that works for your schedule.',
+      'Same-day appointments are often available. Virtual Care Now is open 7 days a week: Sunday through Friday from 6:00 AM to 12:00 AM, and Saturday from 8:00 AM to 12:00 AM Eastern Time, making it easy to access care at a time that works for your schedule.',
   },
   {
     question: 'What technology do I need for a visit?',

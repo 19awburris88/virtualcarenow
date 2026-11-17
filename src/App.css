@@ -461,6 +461,10 @@ h1 {
   letter-spacing: -0.02em;
 }
 
+.avail-days-secondary {
+  margin-top: 14px;
+}
+
 .avail-tz {
   font-size: 0.78rem;
   color: var(--text-muted);

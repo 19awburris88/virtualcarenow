@@ -177,7 +177,7 @@ export default function Contact() {
                   <div className="contact-detail-icon"><ClockIcon /></div>
                   <div>
                     <div className="contact-detail-label">Hours</div>
-                    <div className="contact-detail-value">Mon – Sun, 5:00 AM – 12:00 AM EST</div>
+                    <div className="contact-detail-value">Sun – Fri, 6:00 AM – 12:00 AM EST<br />Sat, 8:00 AM – 12:00 AM EST</div>
                   </div>
                 </div>
               </div>
