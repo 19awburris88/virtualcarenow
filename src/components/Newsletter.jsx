@@ -1,39 +1,7 @@
-import { useState } from 'react';
-
-const NEWSLETTER_FORM_ID = import.meta.env.VITE_NEWSLETTER_FORM_ID;
+import useNewsletterSignup from '../hooks/useNewsletterSignup';
 
 export default function Newsletter() {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  const submit = async e => {
-    e.preventDefault();
-    setError('');
-    setLoading(true);
-    if (NEWSLETTER_FORM_ID) {
-      try {
-        const res = await fetch(`https://formspree.io/f/${NEWSLETTER_FORM_ID}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({ email, _subject: 'New Newsletter Subscriber' }),
-        });
-        if (res.ok) {
-          setSubmitted(true);
-        } else {
-          setError('Something went wrong. Please try again.');
-        }
-      } catch {
-        setError('Something went wrong. Please try again.');
-      } finally {
-        setLoading(false);
-      }
-    } else {
-      setSubmitted(true);
-      setLoading(false);
-    }
-  };
+  const { email, setEmail, submitted, loading, error, submit } = useNewsletterSignup('Newsletter section');
 
   return (
     <section className="section-newsletter">
@@ -87,7 +55,7 @@ export default function Newsletter() {
   );
 }
 
-function CheckIcon() {
+export function CheckIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <polyline points="20 6 9 17 4 12" />

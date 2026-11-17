@@ -13,6 +13,7 @@ import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
 import FAQ from './components/FAQ';
 import Newsletter from './components/Newsletter';
+import NewsletterPopup from './components/NewsletterPopup';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BlogPost from './pages/BlogPost';
@@ -37,6 +38,7 @@ function Home() {
         <Contact />
       </main>
       <Footer />
+      <NewsletterPopup />
     </>
   );
 }

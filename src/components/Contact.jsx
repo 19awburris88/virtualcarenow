@@ -75,10 +75,10 @@ export default function Contact() {
                 className="contact-condition-dropdown"
               >
                 <option value="">Choose a condition or service…</option>
+                <option value="Health Coaching">Health Coaching</option>
                 {CONDITIONS.map(c => (
                   <option key={c.name} value={c.name}>{c.name}</option>
                 ))}
-                <option value="Health Coaching">Health Coaching</option>
                 <option value="Other / Not Listed">Other / Not Listed</option>
               </select>
             </div>
