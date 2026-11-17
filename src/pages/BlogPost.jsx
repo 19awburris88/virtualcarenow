@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { POSTS } from '../data/posts';
 import { INTAKEQ_URL, PHONE, PHONE_HREF } from '../data/constants';
+import { bookingUrl } from '../data/bookingServices';
 import logo from '../assets/vnc-logo-nav.webp';
 
 export default function BlogPost() {
@@ -63,7 +64,7 @@ export default function BlogPost() {
                 Book a virtual visit in minutes.
               </p>
               <a
-                href={INTAKEQ_URL}
+                href={bookingUrl(post.serviceId)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary btn-lg"

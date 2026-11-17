@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { CONDITIONS } from '../data/conditions';
-import { PHONE, PHONE_HREF, EMAIL, INTAKEQ_URL, CC_EMAIL } from '../data/constants';
+import { BOOKING_OPTIONS, bookingUrl } from '../data/bookingServices';
+import { PHONE, PHONE_HREF, EMAIL, CC_EMAIL } from '../data/constants';
 
 const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID;
 const EMPTY = { name: '', email: '', phone: '', reason: '', message: '' };
@@ -75,16 +75,14 @@ export default function Contact() {
                 className="contact-condition-dropdown"
               >
                 <option value="">Choose a condition or service…</option>
-                <option value="Health Coaching">Health Coaching</option>
-                {CONDITIONS.map(c => (
-                  <option key={c.name} value={c.name}>{c.name}</option>
+                {BOOKING_OPTIONS.map(o => (
+                  <option key={o.id} value={o.id}>{o.label}</option>
                 ))}
-                <option value="Other / Not Listed">Other / Not Listed</option>
               </select>
             </div>
 
             <a
-              href={INTAKEQ_URL}
+              href={bookingUrl(selectedCondition)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-white btn-lg contact-book-btn"

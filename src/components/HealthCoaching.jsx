@@ -1,4 +1,4 @@
-import { INTAKEQ_URL } from '../data/constants';
+import { bookingUrl, SERVICE_IDS } from '../data/bookingServices';
 
 const topics = [
   'Weight loss',
@@ -38,7 +38,7 @@ export default function HealthCoaching() {
               your journey to achieving your health and wellness goals.
             </p>
             <a
-              href={INTAKEQ_URL}
+              href={bookingUrl(SERVICE_IDS.healthCoaching)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary btn-lg coaching-cta"

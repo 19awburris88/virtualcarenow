@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { CONDITIONS } from '../data/conditions';
-import { INTAKEQ_URL } from '../data/constants';
+import { bookingUrl } from '../data/bookingServices';
 
 export default function Services() {
   const [active, setActive] = useState(null);
@@ -107,7 +107,7 @@ export default function Services() {
               virtual interaction included per visit.
             </div>
             <a
-              href={INTAKEQ_URL}
+              href={bookingUrl(active.serviceId)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary btn-lg btn-full"

@@ -1,6 +1,9 @@
+import { SERVICE_IDS } from './bookingServices';
+
 export const POSTS = [
   {
     slug: 'when-sore-throat-needs-doctor',
+    serviceId: SERVICE_IDS.soreThroat,
     category: 'Throat & ENT',
     title: 'When a Sore Throat Needs More Than Rest',
     excerpt:
@@ -43,6 +46,7 @@ export const POSTS = [
   },
   {
     slug: 'uti-vs-kidney-infection',
+    serviceId: SERVICE_IDS.uti,
     category: 'UTI Care',
     title: 'UTI vs. Kidney Infection: Know the Difference',
     excerpt:
@@ -85,6 +89,7 @@ export const POSTS = [
   },
   {
     slug: 'virtual-care-medication-refills',
+    serviceId: SERVICE_IDS.medicationRefill,
     category: 'Chronic Care',
     title: 'Can a Virtual Visit Refill My Prescription?',
     excerpt:
@@ -124,6 +129,7 @@ export const POSTS = [
   },
   {
     slug: 'sinus-pressure-signs',
+    serviceId: SERVICE_IDS.sinusitis,
     category: 'Sinus & Allergies',
     title: '5 Signs Your Sinus Pressure Needs a Doctor',
     excerpt:
