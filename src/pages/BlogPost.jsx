@@ -81,7 +81,11 @@ export default function BlogPost() {
           <a href="/" className="blog-post-logo">
             <img src={logo} alt="Virtual Care Now" height={28} />
           </a>
-          <p>© {new Date().getFullYear()} Virtual Care Now. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Virtual Care Now. All rights reserved.
+            <span className="footer-credit-sep"> · </span>
+            <a href="https://moresmoke.dev" target="_blank" rel="noopener" className="footer-credit">Website by More Smoke Dev</a>
+          </p>
           <a href="/" className="blog-post-home-link">← Back to Home</a>
         </div>
       </footer>

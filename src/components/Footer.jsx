@@ -24,7 +24,10 @@ export default function Footer() {
           ))}
         </ul>
 
-        <p className="footer-copy">© {new Date().getFullYear()} Virtual Care Now. All rights reserved.</p>
+        <div className="footer-meta">
+          <p className="footer-copy">© {new Date().getFullYear()} Virtual Care Now. All rights reserved.</p>
+          <a href="https://moresmoke.dev" target="_blank" rel="noopener" className="footer-credit">Website by More Smoke Dev</a>
+        </div>
       </div>
     </footer>
   );

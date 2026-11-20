@@ -2358,6 +2358,26 @@ footer {
   color: rgba(255, 255, 255, 0.35);
 }
 
+.footer-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.footer-credit {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.2);
+  text-underline-offset: 3px;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+.footer-credit:hover {
+  color: var(--copper);
+  text-decoration-color: var(--copper);
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
@@ -2507,6 +2527,10 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+  }
+
+  .footer-meta {
+    align-items: flex-start;
   }
 }
 
